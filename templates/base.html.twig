@@ -5,6 +5,7 @@
         <title>{% block title %}Welcome!{% endblock %}</title>
         <link rel="stylesheet" href="/css/bootstrap.min.css">
         <link rel="stylesheet" href="/css/styles.css">
+        <link rel="stylesheet" href="/css/style.js">
         <link rel="stylesheet" href="/css/bootstrap.css">
         {% block stylesheets %}{% endblock %}
     </head>
@@ -28,6 +29,9 @@
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{{path("about")}}">About</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{path("login")}}">Login</a>
                 </li>
                 </ul>
                 <form class="form-inline my-2 my-lg-0">
