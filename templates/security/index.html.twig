@@ -3,14 +3,14 @@
 {% block title %}Hello SecurityController!{% endblock %}
 
 {% block body %}
-    <div class='container'>
+    <div class='container mt-4'>
         {{ form_start(form) }}
-        
-            {{ form_row(form.username, {'attr' : {'placeholder':'Set your name'}})}}
-            {{ form_row(form.email, {'attr' : {'placeholder': 'Set your Email'}})}}
-            {{ form_row(form.password, {'attr' : {'placeholder' : 'Set your password'}})}}
-            {{ form_row(form.confirm_password, {'attr' : {'placeholder' : 'confirm your password'}})}}
-            <button type="button" class="btn btn-success"> Registration <button>
-        {{ form_end(form)}}
+
+        {{ form_row(form.username, {'attr' : {'placeholder':'Set your name'}}) }}
+        {{ form_row(form.email, {'attr' : {'placeholder': 'Set your Email'}}) }}
+        {{ form_row(form.password, {'attr' : {'placeholder' : 'Set your password'}}) }}
+        {{ form_row(form.confirm_password, {'attr' : {'placeholder' : 'confirm your password'}}) }}
+        <button type="submit" class="btn btn-success"> Registration</button>
+        {{ form_end(form) }}
     </div>
 {% endblock %}
