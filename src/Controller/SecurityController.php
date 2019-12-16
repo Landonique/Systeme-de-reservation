@@ -7,13 +7,14 @@ use App\Form\RegistrationType;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 
 class SecurityController extends AbstractController
 {
     /**
      * @Route("/security", name="security")
      */
-    public function index(Request $request)
+    public function index(Request $request,UserPasswordEncoderInterface $encoder)
     {   
         $user = new User();
 
@@ -22,7 +23,7 @@ class SecurityController extends AbstractController
         $form->handleRequest($request);
         
         if ($form->isSubmitted() && $form->isValid()) {
-
+            $hash = $encoder->encodePassword($user, $user->getPassword());
             $user = $form->getData();
 
             $entityManager = $this->getDoctrine()->getManager();
