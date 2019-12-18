@@ -15,6 +15,7 @@ class VoitureType extends AbstractType
             ->add('marque')
             ->add('nombrePlace')
             ->add('matricule')
+            ->add('image')
         ;
     }
 
