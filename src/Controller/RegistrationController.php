@@ -22,6 +22,11 @@ class RegistrationController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            if($form->get('chauffeur')->getData()) {
+                $user->setRoles(['ROLE_CHAUFFEUR']);
+            } else {
+                $user->setRoles(['ROLE_USER']);
+            }
             // encode the plain password
             $user->setPassword(
                 $passwordEncoder->encodePassword(
