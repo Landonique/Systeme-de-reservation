@@ -130,6 +130,6 @@ class User implements UserInterface, EncoderAwareInterface
 
     public function getEncoderName()
     {
-        return '';
+        return null;
     }
 }
