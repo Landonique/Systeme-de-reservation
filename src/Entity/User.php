@@ -2,6 +2,8 @@
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
@@ -42,6 +44,16 @@ class User implements UserInterface, EncoderAwareInterface
      * @ORM\Column(type="string", length=255)
      */
     private $username;
+
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\Voiture", mappedBy="user", orphanRemoval=true)
+     */
+    private $voiture;
+
+    public function __construct()
+    {
+        $this->voiture = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -131,5 +143,36 @@ class User implements UserInterface, EncoderAwareInterface
     public function getEncoderName()
     {
         return null;
+    }
+
+    /**
+     * @return Collection|Voiture[]
+     */
+    public function getVoiture(): Collection
+    {
+        return $this->voiture;
+    }
+
+    public function addVoiture(Voiture $voiture): self
+    {
+        if (!$this->voiture->contains($voiture)) {
+            $this->voiture[] = $voiture;
+            $voiture->setUser($this);
+        }
+
+        return $this;
+    }
+
+    public function removeVoiture(Voiture $voiture): self
+    {
+        if ($this->voiture->contains($voiture)) {
+            $this->voiture->removeElement($voiture);
+            // set the owning side to null (unless already changed)
+            if ($voiture->getUser() === $this) {
+                $voiture->setUser(null);
+            }
+        }
+
+        return $this;
     }
 }
