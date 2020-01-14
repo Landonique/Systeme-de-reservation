@@ -13,7 +13,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class VoitureController extends AbstractController
 {
     /**
-     * @Route("/list_voitures", name="list_voitures", methods={"GET"})
+     * @Route("/", name="voiture_index", methods={"GET"})
      */
     public function index(VoitureRepository $voitureRepository): Response
     {
