@@ -3,15 +3,16 @@
 {% block title %}Voiture index{% endblock %}
 
 {% block body %}
+<div class='container mt-4'>
     <h1>Voiture index</h1>
 
     <table class="table">
-        <thead>
+        <thead class="thead-light">
             <tr>
-                <th>Marque</th>
-                <th>NombrePlace</th>
-                <th>Matricule</th>
-                <th>actions</th>
+                <th scope="col">Marque</th>
+                <th scope="col">NombrePlace</th>
+                <th scope="col">Matricule</th>
+                <th scope="col">Actions</th>
             </tr>
         </thead>
         <tbody>
@@ -21,8 +22,10 @@
                 <td>{{ voiture.nombrePlace }}</td>
                 <td>{{ voiture.matricule }}</td>
                 <td>
-                    <a href="{{ path('voiture_show', {'id': voiture.id}) }}">show</a>
-                    <a href="{{ path('voiture_edit', {'id': voiture.id}) }}">edit</a>
+                 <div class="d-flex justify-content-center">
+                    <a href="{{ path('voiture_show', {'id': voiture.id}) }}" class="btn btn-primary stretched-link mr-3">Show</a>
+                    <a href="{{ path('voiture_edit', {'id': voiture.id}) }}" class="btn btn-primary stretched-link mr-3">Edit</a>
+                 </div>
                 </td>
             </tr>
         {% else %}
@@ -32,6 +35,8 @@
         {% endfor %}
         </tbody>
     </table>
-
-    <a href="{{ path('voiture_new') }}">Create new</a>
+     <div class="d-flex justify-content-center">
+    <a href="{{ path('voiture_new') }}" class="btn btn-primary" >Create new</a>
+    </div>
+</div>    
 {% endblock %}
