@@ -6,7 +6,7 @@
 <div class='container mt-4'>
     <h1>Voiture</h1>
 
-    <table class="table">
+    <table class="table table-bordered">
         <tbody>
             <tr>
                 <th>Id</th>
@@ -28,9 +28,9 @@
     </table>
 
 <div class="d-flex justify-content-center">      
-    <a href="{{ path('voiture_index') }}" class="btn btn-primary stretched-link mr-4">Back to list</a>
+    <a href="{{ path('voiture_index') }}" class="btn btn-primary  mr-4">Back to list</a>
     
-    <a href="{{ path('voiture_edit', {'id': voiture.id}) }}" class="btn btn-primary stretched-link mr-4">Edit</a>
+    <a href="{{ path('voiture_edit', {'id': voiture.id}) }}" class="btn btn-primary mr-4">Edit</a>
      
     {{ include('voiture/_delete_form.html.twig') }}
  </div>   

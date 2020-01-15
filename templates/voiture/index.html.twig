@@ -6,7 +6,7 @@
 <div class='container mt-4'>
     <h1>Voiture index</h1>
 
-    <table class="table">
+    <table class="table table-bordered">
         <thead class="thead-light">
             <tr>
                 <th scope="col">Marque</th>
@@ -23,9 +23,9 @@
                 <td>{{ voiture.matricule }}</td>
                 <td>
                  <div class="d-flex justify-content-center">
-                    <a href="{{ path('voiture_show', {'id': voiture.id}) }}" class="btn btn-primary stretched-link mr-3">Show</a>
-                    <a href="{{ path('voiture_edit', {'id': voiture.id}) }}" class="btn btn-primary stretched-link mr-3">Edit</a>
-                 </div>
+                    <a href="{{ path('voiture_show', {'id': voiture.id}) }}" class="btn btn-primary  mr-3">Show</a>
+                    <a href="{{ path('voiture_edit', {'id': voiture.id}) }}" class="btn btn-primary  mr-3">Edit</a>
+                </div>
                 </td>
             </tr>
         {% else %}
@@ -36,7 +36,7 @@
         </tbody>
     </table>
      <div class="d-flex justify-content-center">
-    <a href="{{ path('voiture_new') }}" class="btn btn-primary stretched-link" >Create new</a>
+    <a href="{{ path('voiture_new') }}" class="btn btn-primary " >Create new</a>
     </div>
 </div>    
 {% endblock %}
