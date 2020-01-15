@@ -9,7 +9,9 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
-
+/**
+ * @Route("/voiture")
+ */
 class VoitureController extends AbstractController
 {
     /**
@@ -22,13 +24,6 @@ class VoitureController extends AbstractController
              'voitures' => $voitureRepository->findAll(),
          ]);
      }
-
-    // public function index(VoitureRepository $voitureRepository): Response
-    // {
-    //     return $this->render('voiture/index.html.twig', [
-    //         'voitures' => $voitureRepository->findAll(),
-    //     ]);
-    // }
 
     /**
      * @Route("/new", name="voiture_new", methods={"GET","POST"})
