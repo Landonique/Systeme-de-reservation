@@ -50,9 +50,15 @@ class User implements UserInterface, EncoderAwareInterface
      */
     private $voiture;
 
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\Notification", mappedBy="client")
+     */
+    private $notifications;
+
     public function __construct()
     {
         $this->voiture = new ArrayCollection();
+        $this->notifications = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -170,6 +176,37 @@ class User implements UserInterface, EncoderAwareInterface
             // set the owning side to null (unless already changed)
             if ($voiture->getUser() === $this) {
                 $voiture->setUser(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Notification[]
+     */
+    public function getNotifications(): Collection
+    {
+        return $this->notifications;
+    }
+
+    public function addNotification(Notification $notification): self
+    {
+        if (!$this->notifications->contains($notification)) {
+            $this->notifications[] = $notification;
+            $notification->setClient($this);
+        }
+
+        return $this;
+    }
+
+    public function removeNotification(Notification $notification): self
+    {
+        if ($this->notifications->contains($notification)) {
+            $this->notifications->removeElement($notification);
+            // set the owning side to null (unless already changed)
+            if ($notification->getClient() === $this) {
+                $notification->setClient(null);
             }
         }
 
