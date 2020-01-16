@@ -2,9 +2,12 @@
 
 namespace App\Form;
 
+use App\Entity\User;
+use App\Entity\Voiture;
 use App\Entity\Notification;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
 class NotificationType extends AbstractType
@@ -13,8 +16,14 @@ class NotificationType extends AbstractType
     {
         $builder
             ->add('date')
-            ->add('voiture')
-            ->add('client')
+            ->add('voiture', EntityType::class, [
+                'class' => Voiture::class,
+                'choice_label' => 'matricule'
+            ])
+            ->add('client', EntityType::class, [
+                'class' => User::class,
+                'choice_label' => 'username'
+            ])
         ;
     }
 

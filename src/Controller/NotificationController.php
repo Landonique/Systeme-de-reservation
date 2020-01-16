@@ -2,13 +2,14 @@
 
 namespace App\Controller;
 
+use App\Entity\User;
 use App\Entity\Notification;
 use App\Form\NotificationType;
 use App\Repository\NotificationRepository;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 /**
  * @Route("/notification")
@@ -24,7 +25,14 @@ class NotificationController extends AbstractController
             'notifications' => $notificationRepository->findAll(),
         ]);
     }
-
+    /**
+     * @Route("/chauffeur", name="notification_chauffeur", methods={"GET"})
+     */
+    public function chauffeurNotification(){
+        dump($this->getUser());
+        die();
+    }
+    
     /**
      * @Route("/new", name="notification_new", methods={"GET","POST"})
      */
@@ -91,4 +99,7 @@ class NotificationController extends AbstractController
 
         return $this->redirectToRoute('notification_index');
     }
+    
+
+
 }
