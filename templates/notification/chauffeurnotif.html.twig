@@ -1,0 +1,19 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Site du co-voiturage{% endblock %}
+
+{% block body %}
+    <div>
+            <article class="article">
+                <h1> Notification chauffeur</h1>
+                <div class ="content">
+                    {% for notification in notifications %}
+                        <p>{{ notification.date ? notification.date|date('Y-m-d H:i:s') : ''  }}</p>
+                        <p>voiture réservée :{{ notification.voiture.matricule }}</p>
+                        <p>Client: {{ notification.client.username }} </p>
+                        <p> {{ notification.client.username }} </p>
+                    {% endfor %}
+                </div>
+            </articel>
+    </div>
+{% endblock %}

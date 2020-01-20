@@ -28,9 +28,13 @@ class NotificationController extends AbstractController
     /**
      * @Route("/chauffeur", name="notification_chauffeur", methods={"GET"})
      */
-    public function chauffeurNotification(){
-        dump($this->getUser());
-        die();
+    public function chauffeurNotification(NotificationRepository $notificationRepository){
+        /*dump($notificationRepository->findAll());
+        die();*/
+        return $this->render('notification/chauffeurnotif.html.twig', [
+            'controller_name' => 'NotificationController',
+            'notifications' => $notificationRepository->findNotificationChauffeur($this->getUser())
+        ]);
     }
     
     /**

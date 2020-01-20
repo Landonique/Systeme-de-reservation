@@ -3,16 +3,18 @@
 {% block title %}Site du co-voiturage{% endblock %}
 
 {% block body %}
-    <article class="article">
-        <h1> Bienvenue dans notre site pour le co-voiturage</h1>
-        <h2> Voici les voitures disponibles</h2>
-        <div class ="content">
-            {% for voiture in voitures %}
-                <p>{{ voiture.marque }}</p>
-                <img src="{{ voiture.image }}" alt="">
-                <p>Nombre de place :{{ voiture.nombrePlace }}</p>
-                <p>Matricule: {{ voiture.matricule }} </p>
-            {% endfor %}
-        </div>
-    </articel>
+    <div>
+        <article class="article">
+            <h1> Bienvenue dans notre site pour le co-voiturage</h1>
+            <h2> Voici les voitures disponibles</h2>
+            <div class ="content">
+                {% for voiture in voitures %}
+                    <p>{{ voiture.marque }}</p>
+                    <img src="{{ voiture.image }}" alt="">
+                    <p>Nombre de place :{{ voiture.nombrePlace }}</p>
+                    <p>Matricule: {{ voiture.matricule }} </p>
+                {% endfor %}
+            </div>
+        </articel>
+    </div>
 {% endblock %}
