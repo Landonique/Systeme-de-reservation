@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>{% block title %}CoVOITURAGE | ADMIN |  {% endblock %}</title>
+    {{ encore_entry_link_tags('app') }}
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
+          integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+    {% block stylesheets %}{% endblock %}
+</head>
+<body>
+{% set route = app.request.attributes.get('_route') %}
+
+<div class="app">
+    {% include 'admin/sidebar.html.twig' %}
+
+    <!-- Contenu de la page -->
+    <div class="app-content">
+        <div class="content-header">
+            <nav class="navbar navbar-expand navbar-light bg-white">
+                <div class="navbar-brand">Co<b>VOITURAGE</b></div>
+            </nav>
+        </div>
+        <div class="content-body">
+            <div class="container-fluid p-4">
+                <div class="mb-4">
+                    {% for label, messages in app.flashes %}
+                        {% for message in messages %}
+                            <div class="alert alert-{{ label }}" role="alert">
+                                {{ message | raw }}
+                            </div>
+                        {% endfor %}
+                    {% endfor %}
+                </div>
+                {% block body %}{% endblock %}
+            </div>
+        </div>
+    </div>
+</div>
+
+{{ encore_entry_script_tags('app') }}
+{% block javascripts %}
+{% endblock %}
+</body>
+</html>

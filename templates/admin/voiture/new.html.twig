@@ -1,0 +1,12 @@
+{% extends 'admin/base.html.twig' %}
+
+{% block title %}Nouvelle Voiture{% endblock %}
+
+{% block body %}
+    <h1 class="mb-5">
+        <a href="{{ path('voiture_index') }}" title="Liste des voitures"><i class="fa fa-chevron-left"></i></a>
+        Nouvelle Voiture
+    </h1>
+
+    {{ include('admin/voiture/_form.html.twig') }}
+{% endblock %}

@@ -2,6 +2,7 @@
 
 namespace App\Entity;
 
+use CrEOF\Spatial\PHP\Types\Geometry\Point;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -41,6 +42,11 @@ class Voiture
      * @ORM\JoinColumn(nullable=true)
      */
     private $user;
+
+    /**
+     * @ORM\OneToOne(targetEntity="App\Entity\Location", cascade={"persist", "remove"})
+     */
+    private $location;
 
     public function getId(): ?int
     {
@@ -103,6 +109,18 @@ class Voiture
     public function setUser(?User $user): self
     {
         $this->user = $user;
+
+        return $this;
+    }
+
+    public function getLocation(): ?Location
+    {
+        return $this->location;
+    }
+
+    public function setLocation(?Location $location): self
+    {
+        $this->location = $location;
 
         return $this;
     }
