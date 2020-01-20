@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Welcome!{% endblock %}</title>
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="/css/bootstrap.css">
+    {% block stylesheets %}{% endblock %}
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <a class="navbar-brand" href="#">Co-voiturage</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01"
+            aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarColor01">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a class="nav-link" href="{{ path("page") }}">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{ path("about") }}">About</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{ path("voiture_index") }}">Nos voitures</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{ path("app_register") }}">Registration</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{ path("app_login") }}">log-in</a>
+            </li>
+
+            {% if app.user %}
+                {# <li class="nav-item">
+                    <a class="nav-link" href="">{{ app.user.email }}</a>
+                </li>  #}
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ path("app_logout") }}">log-out</a>
+                </li>
+            {% endif %}
+        </ul>
+    </div>
+</nav>
+{% block body %}{% endblock %}
+{% block javascripts %}
+    <script src="/js/styles.js"></script>
+{% endblock %}
+</body>
+</html>

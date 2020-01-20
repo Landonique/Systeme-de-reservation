@@ -2,48 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="42c7e4fe-a28f-4ee9-b4f8-1dc8bb6d4d02" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/templates/front/base.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/Systeme-de-reservation.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Systeme-de-reservation.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/bundles.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/bundles.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/packages/doctrine.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/packages/doctrine.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/css/bootstrap.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/css/bootstrap.min.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/css/styles.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/image/KIA.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/public/img/KIA.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/image/logo.PNG" beforeDir="false" afterPath="$PROJECT_DIR$/public/img/logo.PNG" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/Jquery/codejquery.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/jquery-3.3.1.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/styles.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/PageController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/PageController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/RegistrationController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/RegistrationController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/css/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/styles.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/SecurityController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/SecurityController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/VoitureController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/VoitureController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/User.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Voiture.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Voiture.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Form/RegistrationFormType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/RegistrationFormType.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Form/VoitureType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/VoitureType.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Migrations/Version20200113082537.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Repository/UserRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/UserRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Repository/VoitureRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/VoitureRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/symfony.lock" beforeDir="false" afterPath="$PROJECT_DIR$/symfony.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/about/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/front/about/index.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/base.html.twig" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/base_Login.html.twig" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/page/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/front/index.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/registration/register.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/registration/register.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/security/login.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/security/login.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/voiture/_delete_form.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/admin/voiture/_delete_form.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/voiture/_form.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/admin/voiture/_form.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/voiture/edit.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/admin/voiture/edit.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/voiture/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/admin/voiture/index.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/voiture/new.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/admin/voiture/new.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/voiture/show.html.twig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/voiture/edit.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/voiture/edit.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/voiture/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/voiture/index.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/voiture/new.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/voiture/new.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/voiture/show.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/voiture/show.html.twig" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -136,7 +102,7 @@
           <entry key="env" value="17" />
           <entry key="js" value="659" />
           <entry key="json" value="5" />
-          <entry key="php" value="3449" />
+          <entry key="php" value="3451" />
           <entry key="scss" value="116" />
           <entry key="twig" value="4541" />
           <entry key="yaml" value="286" />
@@ -148,7 +114,7 @@
           <entry key="CSS" value="68" />
           <entry key="JSON" value="5" />
           <entry key="JavaScript" value="659" />
-          <entry key="PHP" value="3449" />
+          <entry key="PHP" value="3451" />
           <entry key="PLAIN_TEXT" value="4" />
           <entry key="SCSS" value="116" />
           <entry key="Twig" value="4541" />
@@ -166,7 +132,7 @@
           <entry key="json" value="11" />
           <entry key="lock" value="1" />
           <entry key="md" value="1" />
-          <entry key="php" value="137" />
+          <entry key="php" value="138" />
           <entry key="scss" value="7" />
           <entry key="twig" value="99" />
           <entry key="yaml" value="1" />
@@ -180,7 +146,7 @@
           <entry key="JSON" value="12" />
           <entry key="JavaScript" value="16" />
           <entry key="Markdown" value="1" />
-          <entry key="PHP" value="138" />
+          <entry key="PHP" value="139" />
           <entry key="SCSS" value="7" />
           <entry key="Twig" value="99" />
           <entry key="YAML" value="1" />
@@ -200,14 +166,23 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Controller/VoitureController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="197">
-              <caret line="71" column="72" lean-forward="true" selection-start-line="71" selection-start-column="72" selection-end-line="71" selection-end-column="72" />
+            <state relative-caret-position="2160">
+              <caret line="108" column="9" lean-forward="true" selection-start-line="108" selection-start-column="9" selection-end-line="108" selection-end-column="9" />
               <folding>
                 <element signature="e#34#58#0#PHP" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/Controller/SecurityController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="340">
+              <caret line="32" column="72" selection-start-line="32" selection-start-column="72" selection-end-line="32" selection-end-column="72" />
             </state>
           </provider>
         </entry>
@@ -299,7 +274,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/templates/registration/register.html.twig" />
         <option value="$PROJECT_DIR$/src/Controller/RegistrationController.php" />
         <option value="$PROJECT_DIR$/templates/navbar.html.twig" />
         <option value="$PROJECT_DIR$/templates/footer.html.twig" />
@@ -350,6 +324,7 @@
         <option value="$PROJECT_DIR$/assets/js/app-front.js" />
         <option value="$PROJECT_DIR$/templates/front/index.html.twig" />
         <option value="$PROJECT_DIR$/src/Controller/VoitureController.php" />
+        <option value="$PROJECT_DIR$/src/Controller/SecurityController.php" />
       </list>
     </option>
   </component>
@@ -663,12 +638,6 @@
             <path>
               <item name="Systeme-de-reservation" type="b2602c69:ProjectViewProjectNode" />
               <item name="Systeme-de-reservation" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="Form" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Systeme-de-reservation" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Systeme-de-reservation" type="462c0819:PsiDirectoryNode" />
               <item name="templates" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -741,12 +710,12 @@
       <workItem from="1579077462197" duration="19773000" />
       <workItem from="1579157001431" duration="28096000" />
       <workItem from="1579246425493" duration="25975000" />
-      <workItem from="1579503368380" duration="6393000" />
+      <workItem from="1579503368380" duration="6820000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="89171000" />
+    <option name="totallyTimeSpent" value="89598000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1616" height="876" extended-state="6" />
@@ -780,13 +749,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/vendor/doctrine/orm/lib/Doctrine/ORM/EntityRepository.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="228">
-          <caret line="148" column="4" selection-start-line="148" selection-start-column="4" selection-end-line="148" selection-end-column="68" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/vendor/doctrine/dbal/lib/Doctrine/DBAL/Driver/PDOMySql/Driver.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-440">
@@ -1112,11 +1074,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Controller/VoitureController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="197">
-          <caret line="71" column="72" lean-forward="true" selection-start-line="71" selection-start-column="72" selection-end-line="71" selection-end-column="72" />
+        <state relative-caret-position="2160">
+          <caret line="108" column="9" lean-forward="true" selection-start-line="108" selection-start-column="9" selection-end-line="108" selection-end-column="9" />
           <folding>
             <element signature="e#34#58#0#PHP" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controller/SecurityController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="32" column="72" selection-start-line="32" selection-start-column="72" selection-end-line="32" selection-end-column="72" />
         </state>
       </provider>
     </entry>
