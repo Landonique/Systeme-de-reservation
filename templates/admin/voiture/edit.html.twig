@@ -1,0 +1,19 @@
+{% extends 'admin/base.html.twig' %}
+
+{% block title %}Modification Voiture{% endblock %}
+
+{% block body %}
+    <h1 class="mb-5">
+        <a href="{{ path('voiture_index') }}" title="Liste des voitures"><i class="fa fa-chevron-left"></i></a>
+        Modification
+    </h1>
+
+    <div class="row">
+        <div class="col-3">
+            <img class="w-100" src="{{ voiture.image }}" alt="{{ voiture.marque }}">
+        </div>
+        <div class="col-9">
+            {{ include('admin/voiture/_form.html.twig', {'button_label': 'Modifier'}) }}
+        </div>
+    </div>
+{% endblock %}

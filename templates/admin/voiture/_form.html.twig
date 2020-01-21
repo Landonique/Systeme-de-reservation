@@ -1,0 +1,42 @@
+<div class="row">
+    <div class="col-9">
+        {{ form_start(form) }}
+        {{ form_row(form.user) }}
+        {{ form_row(form.marque) }}
+        <div class="row">
+            <div class="col-6">
+                {{ form_row(form.nombrePlace) }}
+            </div>
+            <div class="col-6">
+                {{ form_row(form.matricule) }}
+            </div>
+        </div>
+        {{ form_row(form.image) }}
+
+        <span class="text-info">Emplacement</span>
+        <div class="row mt-2">
+            <div class="col-6">
+                {{ form_row(form.latitude) }}
+            </div>
+            <div class="col-6">
+                {{ form_row(form.longitude) }}
+            </div>
+        </div>
+
+        <button class="btn btn-primary">
+            <i class="fa fa-check"></i>
+            {{ button_label|default('Enregistrer') }}
+        </button>
+        <a href="{{ path('voiture_index') }}" class="btn btn-light">
+            Annuler
+        </a>
+        {{ form_end(form) }}
+    </div>
+    <div class="col-3 text-center">
+        <a href="https://www.google.com/maps/place/Tananarive/@-18.8802549,47.5256011,15z/data=!4m5!3m4!1s0x21f07de34f1f4eb3:0xdf110608bcc082f9!8m2!3d-18.8791902!4d47.5079055?hl=fr-FR" target="_blank" class="btn btn-light text-center p-3">
+            <i class="fas fa-map-marked-alt fa-3x mb-2"></i> <br>
+            Position sur Carte
+        </a>
+    </div>
+</div>
+

@@ -2,8 +2,7 @@
 
 namespace App\Entity;
 
-use Doctrine\Common\Collections\ArrayCollection;
-use Doctrine\Common\Collections\Collection;
+use CrEOF\Spatial\PHP\Types\Geometry\Point;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -45,14 +44,9 @@ class Voiture
     private $user;
 
     /**
-     * @ORM\OneToMany(targetEntity="App\Entity\Notification", mappedBy="voiture")
+     * @ORM\OneToOne(targetEntity="App\Entity\Location", cascade={"persist", "remove"})
      */
-    private $notifications;
-
-    public function __construct()
-    {
-        $this->notifications = new ArrayCollection();
-    }
+    private $location;
 
     public function getId(): ?int
     {
@@ -119,33 +113,14 @@ class Voiture
         return $this;
     }
 
-    /**
-     * @return Collection|Notification[]
-     */
-    public function getNotifications(): Collection
+    public function getLocation(): ?Location
     {
-        return $this->notifications;
+        return $this->location;
     }
 
-    public function addNotification(Notification $notification): self
+    public function setLocation(?Location $location): self
     {
-        if (!$this->notifications->contains($notification)) {
-            $this->notifications[] = $notification;
-            $notification->setVoiture($this);
-        }
-
-        return $this;
-    }
-
-    public function removeNotification(Notification $notification): self
-    {
-        if ($this->notifications->contains($notification)) {
-            $this->notifications->removeElement($notification);
-            // set the owning side to null (unless already changed)
-            if ($notification->getVoiture() === $this) {
-                $notification->setVoiture(null);
-            }
-        }
+        $this->location = $location;
 
         return $this;
     }

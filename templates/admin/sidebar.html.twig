@@ -1,0 +1,43 @@
+<div class="app-sidebar">
+    <div class="sidebar-header">
+        <div class="username text-center">
+            <i class="fas fa-user-circle fa-5x mb-2"></i>
+            <span>{{ app.user.lastname | default('ADMIN') | upper }}</span>
+            <small>{{ app.user.email | default('admin@gmail.com') }}</small>
+        </div>
+    </div>
+    <div id="sidebar-nav" class="sidebar-nav px-2">
+        <ul>
+            <li>
+                <a href="{{ path('page') }}" class="btn btn-outline-primary text-primary">
+                    <span class="fa fa-home"></span>
+                    <span class="sidebar-nav-text">TABLEAU DE BORD</span>
+                </a>
+            </li>
+        </ul>
+        <hr>
+        <span class="sidebar-nav-header">Menu</span>
+        <ul>
+            <li>
+                <a href="{{ path('user_index') }}">
+                    <span class="sidebar-nav-icon fas fa-user"></span>
+                    <span class="sidebar-nav-text">Chauffeur</span>
+                </a>
+            </li>
+            <li>
+                <a href="{{ path('voiture_index') }}">
+                    <span class="sidebar-nav-icon fas fa-car"></span>
+                    <span class="sidebar-nav-text">Voitures</span>
+                </a>
+            </li>
+            <hr>
+
+            <li>
+                <a href="{{ path('app_logout') }}">
+                    <span class="sidebar-nav-icon fas fa-power-off text-danger"></span>
+                    <span class="sidebar-nav-text">Déconnexion</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>

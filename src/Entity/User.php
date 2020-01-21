@@ -15,201 +15,210 @@ use Symfony\Component\Security\Core\Encoder\EncoderAwareInterface;
  */
 class User implements UserInterface, EncoderAwareInterface
 {
-    /**
-     * @ORM\Id()
-     * @ORM\GeneratedValue()
-     * @ORM\Column(type="integer")
-     */
-    private $id;
+	/**
+	 * @ORM\Id()
+	 * @ORM\GeneratedValue()
+	 * @ORM\Column(type="integer")
+	 */
+	private $id;
 
-    /**
-     * @ORM\Column(type="string", length=180, unique=true)
-     */
-    private $email;
+	/**
+	 * @ORM\Column(type="string", length=255, nullable=true)
+	 */
+	private $firstname;
 
-    /**
-     * @ORM\Column(type="json")
-     */
-    private $roles = [];
+	/**
+	 * @ORM\Column(type="string", length=255, nullable=true)
+	 */
+	private $lastname;
 
-    /**
-     * @var string The hashed password
-     * @ORM\Column(type="string")
-     */
-    private $password;
+	/**
+	 * @ORM\Column(type="string", length=255)
+	 */
+	private $username;
 
-    public $confirm_password;
+	/**
+	 * @ORM\Column(type="string", length=255)
+	 */
+	private $email;
 
-    /**
-     * @ORM\Column(type="string", length=255)
-     */
-    private $username;
+	/**
+	 * @ORM\Column(type="string", length=255)
+	 */
+	private $password;
 
-    /**
-     * @ORM\OneToMany(targetEntity="App\Entity\Voiture", mappedBy="user", orphanRemoval=true)
-     */
-    private $voiture;
+	/**
+	 * @ORM\Column(type="json")
+	 */
+	private $roles = [];
 
-    /**
-     * @ORM\OneToMany(targetEntity="App\Entity\Notification", mappedBy="client")
-     */
-    private $notifications;
+	/**
+	 * @ORM\OneToMany(targetEntity="App\Entity\Voiture", mappedBy="user", orphanRemoval=true)
+	 */
+	private $voiture;
 
-    public function __construct()
-    {
-        $this->voiture = new ArrayCollection();
-        $this->notifications = new ArrayCollection();
-    }
+	public function __construct()
+	{
+		$this->voiture = new ArrayCollection();
+	}
 
-    public function getId(): ?int
-    {
-        return $this->id;
-    }
+	public function getId(): ?int
+	{
+		return $this->id;
+	}
 
-    public function getEmail(): ?string
-    {
-        return $this->email;
-    }
+	public function getFirstname(): ?string
+	{
+		return $this->firstname;
+	}
 
-    public function setEmail(string $email): self
-    {
-        $this->email = $email;
+	public function setFirstname(?string $firstname): self
+	{
+		$this->firstname = $firstname;
 
-        return $this;
-    }
+		return $this;
+	}
 
-    /**
-     * A visual identifier that represents this user.
-     *
-     * @see UserInterface
-     */
-    public function getUsername(): string
-    {
-        return (string) $this->email;
-    }
+	public function getLastname(): ?string
+	{
+		return $this->lastname;
+	}
 
-    /**
-     * @see UserInterface
-     */
-    public function getRoles(): array
-    {
-        $roles = $this->roles;
-        // guarantee every user at least has ROLE_USER
-        $roles[] = 'ROLE_USER';
+	public function setLastname(?string $lastname): self
+	{
+		$this->lastname = $lastname;
 
-        return array_unique($roles);
-    }
+		return $this;
+	}
 
-    public function setRoles(array $roles): self
-    {
-        $this->roles = $roles;
+	public function getEmail(): ?string
+	{
+		return $this->email;
+	}
 
-        return $this;
-    }
+	public function setEmail(string $email): self
+	{
+		$this->email = $email;
 
-    /**
-     * @see UserInterface
-     */
-    public function getPassword(): string
-    {
-        return (string) $this->password;
-    }
+		return $this;
+	}
 
-    public function setPassword(string $password): self
-    {
-        $this->password = $password;
+	public function getPassword(): ?string
+	{
+		return $this->password;
+	}
 
-        return $this;
-    }
+	public function setPassword(string $password): self
+	{
+		$this->password = $password;
 
-    /**
-     * @see UserInterface
-     */
-    public function getSalt()
-    {
-        // not needed when using the "bcrypt" algorithm in security.yaml
-    }
+		return $this;
+	}
 
-    /**
-     * @see UserInterface
-     */
-    public function eraseCredentials()
-    {
-        // If you store any temporary, sensitive data on the user, clear it here
-        // $this->plainPassword = null;
-    }
 
-    public function setUsername(string $username): self
-    {
-        $this->username = $username;
+	/**
+	 * Returns the roles granted to the user.
+	 *
+	 *     public function getRoles()
+	 *     {
+	 *         return ['ROLE_USER'];
+	 *     }
+	 *
+	 * Alternatively, the roles might be stored on a ``roles`` property,
+	 * and populated in any number of different ways when the user object
+	 * is created.
+	 *
+	 * @return (Role|string)[] The user roles
+	 */
+	public function getRoles()
+	{
+		$roles = $this->roles;
+		// guarantee every user at least has ROLE_USER
+		$roles[] = 'ROLE_USER';
 
-        return $this;
-    }
+		return array_unique($roles);
+	}
 
-    public function getEncoderName()
-    {
-        return null;
-    }
+	public function setRoles(array $roles): self
+	{
+		$this->roles = $roles;
 
-    /**
-     * @return Collection|Voiture[]
-     */
-    public function getVoiture(): Collection
-    {
-        return $this->voiture;
-    }
+		return $this;
+	}
 
-    public function addVoiture(Voiture $voiture): self
-    {
-        if (!$this->voiture->contains($voiture)) {
-            $this->voiture[] = $voiture;
-            $voiture->setUser($this);
-        }
+	/**
+	 * Returns the salt that was originally used to encode the password.
+	 *
+	 * This can return null if the password was not encoded using a salt.
+	 *
+	 * @return string|null The salt
+	 */
+	public function getSalt()
+	{
+		// TODO: Implement getSalt() method.
+	}
 
-        return $this;
-    }
+	/**
+	 * Returns the username used to authenticate the user.
+	 *
+	 * @return string The username
+	 */
+	public function getUsername()
+	{
+		return $this->email;
+	}
 
-    public function removeVoiture(Voiture $voiture): self
-    {
-        if ($this->voiture->contains($voiture)) {
-            $this->voiture->removeElement($voiture);
-            // set the owning side to null (unless already changed)
-            if ($voiture->getUser() === $this) {
-                $voiture->setUser(null);
-            }
-        }
+	/**
+	 * Removes sensitive data from the user.
+	 *
+	 * This is important if, at any given point, sensitive information like
+	 * the plain-text password is stored on this object.
+	 */
+	public function eraseCredentials()
+	{
+		// TODO: Implement eraseCredentials() method.
+	}
 
-        return $this;
-    }
+	public function getEncoderName()
+	{
+		return null;
+	}
 
-    /**
-     * @return Collection|Notification[]
-     */
-    public function getNotifications(): Collection
-    {
-        return $this->notifications;
-    }
+	public function setUsername(string $username): self
+	{
+		$this->username = $username;
 
-    public function addNotification(Notification $notification): self
-    {
-        if (!$this->notifications->contains($notification)) {
-            $this->notifications[] = $notification;
-            $notification->setClient($this);
-        }
+		return $this;
+	}
 
-        return $this;
-    }
+	/**
+	 * @return Collection|Voiture[]
+	 */
+	public function getVoiture(): Collection
+	{
+		return $this->voiture;
+	}
 
-    public function removeNotification(Notification $notification): self
-    {
-        if ($this->notifications->contains($notification)) {
-            $this->notifications->removeElement($notification);
-            // set the owning side to null (unless already changed)
-            if ($notification->getClient() === $this) {
-                $notification->setClient(null);
-            }
-        }
+	public function addVoiture(Voiture $voiture): self
+	{
+		if (!$this->voiture->contains($voiture)) {
+			$this->voiture[] = $voiture;
+			$voiture->setUser($this);
+		}
 
-        return $this;
-    }
+		return $this;
+	}
+
+	public function removeVoiture(Voiture $voiture): self
+	{
+		if ($this->voiture->contains($voiture)) {
+			$this->voiture->removeElement($voiture);
+			// set the owning side to null (unless already changed)
+			if ($voiture->getUser() === $this) {
+				$voiture->setUser(null);
+			}
+		}
+
+		return $this;
+	}
 }

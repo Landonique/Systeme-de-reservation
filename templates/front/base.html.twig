@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>{% block title %}CoVOITURAGE | {% endblock %}</title>
+    {{ encore_entry_link_tags('app-front') }}
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
+          integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+    {% block meta %}{% endblock %}
+    {% block stylesheets %}{% endblock %}
+</head>
+<body class="h-100">
+{% include 'front/navbar.html.twig' %}
+
+{% block body %}{% endblock %}
+
+{% include 'front/footer.html.twig' %}
+
+{{ encore_entry_script_tags('app-front') }}
+{% block javascripts %}
+{% endblock %}
+</body>
+</html>

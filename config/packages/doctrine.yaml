@@ -5,12 +5,19 @@ doctrine:
         # IMPORTANT: You MUST configure your db driver and server version,
         # either here or in the DATABASE_URL env var (see .env file)
         driver: 'pdo_mysql'
-        server_version: '5.7'
+        server_version: '5.7.28'
 
         # Only needed for MySQL (ignored otherwise)
         charset: utf8mb4
         default_table_options:
             collate: utf8mb4_unicode_ci
+
+        types:
+            geometry: CrEOF\Spatial\DBAL\Types\GeometryType
+            point: CrEOF\Spatial\DBAL\Types\Geometry\PointType
+            polygon: CrEOF\Spatial\DBAL\Types\Geometry\PolygonType
+            linestring: CrEOF\Spatial\DBAL\Types\Geometry\LineStringType
+
     orm:
         auto_generate_proxy_classes: true
         naming_strategy: doctrine.orm.naming_strategy.underscore_number_aware
@@ -22,3 +29,12 @@ doctrine:
                 dir: '%kernel.project_dir%/src/Entity'
                 prefix: 'App\Entity'
                 alias: App
+
+        dql:
+            numeric_functions:
+                st_astext: App\ORM\STAsText
+                point: CrEOF\Spatial\ORM\Query\AST\Functions\MySql\Point
+                distance: CrEOF\Spatial\ORM\Query\AST\Functions\MySql\Distance
+                x: CrEOF\Spatial\ORM\Query\AST\Functions\MySql\X
+                y: CrEOF\Spatial\ORM\Query\AST\Functions\MySql\Y
+

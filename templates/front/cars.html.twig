@@ -1,0 +1,24 @@
+{% extends 'front/base.html.twig' %}
+
+{% block title %}{{ parent() }}Nos Voitures{% endblock %}
+
+{% block body %}
+    <div class="container-fluid">
+        <div class="d-flex">
+            {% for car in cars %}
+                <div class="card mr-2" style="width: 18rem;">
+                    <img src="{{ car.image }}" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ car.marque }}</h5>
+                        <p class="card-text">
+                            {{ car.matricule }} <span class="text-muted">| {{ car.nombrePlace < 10 ? '0' ~ car.nombrePlace : car.nombrePlace }} Places</span>
+                            <br>
+                            <span class="font-italic">Conduit par <span class="text-info ml-1"><i class="fa fa-user" style="font-size: .9rem"></i> {{ car.user.lastname }}</span></span>
+                        </p>
+                        <a href="#" class="btn btn-primary">Prends moi vite :)</a>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}
