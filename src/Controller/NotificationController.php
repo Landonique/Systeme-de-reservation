@@ -5,10 +5,13 @@ namespace App\Controller;
 use App\Entity\User;
 use App\Entity\Notification;
 use App\Form\NotificationType;
+use App\Repository\UserRepository;
+use App\Repository\VoitureRepository;
 use App\Repository\NotificationRepository;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 /**
@@ -103,7 +106,24 @@ class NotificationController extends AbstractController
 
         return $this->redirectToRoute('notification_index');
     }
-    
+    /**
+	 * @Route("/client/commande", name="clients_commande", methods={"POST"})
+	 */
+	public function carLocation(Request $request, UserRepository $userRepository, VoitureRepository $voitureRepository): JsonResponse
+	{
+        $user = $userRepository->find($request->get('user'));
+        $voiture = $voitureRepository->find($request->get('voitu'));
+        $notification = new Notification();
+        $notification->setClient($user);
+        $notification->setVoiture($voiture);
+        $notification->setDate(new \DateTime());
+        $entityManager = $this->getDoctrine()->getManager();
+        $entityManager->persist($notification);
+        $entityManager->flush();
+        return new JsonResponse([
+			'success' => true,
+		]);
+	}
 
 
 }

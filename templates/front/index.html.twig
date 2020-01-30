@@ -23,9 +23,19 @@
 
                 </div>
                 <div class="modal-footer border-top-0">
-                    <button type="button" class="btn btn-warning" data-dismiss="modal"><i class="fa fa-check"></i> Réserver</button>
+                    <button type="button" class="btn btn-warning btn-reserver" data-dismiss="modal"><i class="fa fa-check"></i> Réserver</button>
                 </div>
             </div>
         </div>
     </div>
+{% endblock %}
+
+{% block javascripts %}
+    {% if app.user %}
+        <script>
+            var userId = '{{app.user.id}}';
+        </script>
+    {% endif %}
+
+    {{parent()}}
 {% endblock %}

@@ -31,6 +31,11 @@ $(document).ready(function () {
                                     </div>
                                 </div>
                             `);
+
+                            $('.btn-reserver').off().click(function() {
+                                commande(userId,data.id);
+                            });
+
                             $('#location-result').modal('show');
                         });
                     },
@@ -54,6 +59,20 @@ $(document).ready(function () {
             async: true,
             success: function (return_data) {
                 callback(return_data);
+            }
+        });
+    }
+
+    function commande(userId,voitureId){
+        $.ajax({
+            url: "/notification/client/commande",
+            type: "POST",
+            data: {
+                user: userId,
+                voitu: voitureId
+            },
+            async: true,
+            success: function (return_data) {
             }
         });
     }
