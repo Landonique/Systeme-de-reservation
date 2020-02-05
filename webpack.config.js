@@ -25,6 +25,7 @@ Encore
      */
     .addEntry('app', './assets/js/app.js')
     .addEntry('app-front', './assets/js/app-front.js')
+    .addEntry('driver', './assets/js/driver.js')
     .addEntry('login', './assets/js/login.js')
     //.addEntry('page1', './assets/js/page1.js')
     //.addEntry('page2', './assets/js/page2.js')

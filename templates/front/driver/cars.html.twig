@@ -19,6 +19,49 @@
                     </div>
                 </div>
             {% endfor %}
+            <div class="row">
+    <div class="col-9">
+        {{ form_start(form) }}
+        <div class="d-none">
+        {{ form_row(form.user) }}
+        </div>
+        {{ form_row(form.marque) }}
+        <div class="row">
+            <div class="col-6">
+                {{ form_row(form.nombrePlace) }}
+            </div>
+            <div class="col-6">
+                {{ form_row(form.matricule) }}
+            </div>
+        </div>
+        {{ form_row(form.image) }}
+
+        <span class="text-info">Emplacement</span>
+        <div class="row mt-2">
+            <div class="col-6">
+                {{ form_row(form.latitude) }}
+            </div>
+            <div class="col-6">
+                {{ form_row(form.longitude) }}
+            </div>
+        </div>
+
+        <button class="btn btn-primary">
+            <i class="fa fa-check"></i>
+            {{ button_label|default('Enregistrer') }}
+        </button>
+        <a href="{{ path('voiture_index') }}" class="btn btn-light">
+            Annuler
+        </a>
+        {{ form_end(form) }}
+    </div>
+</div>
+
+
         </div>
     </div>
+{% endblock %}
+
+{% block javascripts %}
+{{ encore_entry_script_tags('driver') }}
 {% endblock %}

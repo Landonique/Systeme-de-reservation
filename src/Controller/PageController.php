@@ -4,12 +4,15 @@ namespace App\Controller;
 
 use App\Entity\User;
 use App\Entity\Voiture;
-use App\Repository\NotificationRepository;
+use App\Entity\Location;
+use App\Form\VoitureType;
 use App\Repository\VoitureRepository;
-use Symfony\Component\HttpFoundation\JsonResponse;
+use App\Repository\NotificationRepository;
+use CrEOF\Spatial\PHP\Types\Geometry\Point;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
 
@@ -54,10 +57,30 @@ class PageController extends AbstractController
 	/**
 	 * @Route("/driver/cars/{id}", name="driver_cars")
 	 */
-	public function driverCars(VoitureRepository $voitureRepository, User $user): Response
+	public function driverCars(VoitureRepository $voitureRepository, Request $request , User $user): Response
 	{
+		$voiture = new Voiture();
+		
+        $voiture->setUser($this->getUser());
+        $form = $this->createForm(VoitureType::class, $voiture, ['driver' => $user]);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+			if ($form->get('latitude')->getData() && $form->get('longitude')->getData()) {
+				$location = new Location();
+				$location->setGeometry(new Point($form->get('longitude')->getData(), $form->get('latitude')->getData()));
+				$voiture->setLocation($location);
+			}
+            $entityManager = $this->getDoctrine()->getManager();
+            $entityManager->persist($voiture);
+            $entityManager->flush();
+
+            return $this->redirectToRoute('driver_cars',['id'=>$user->getId()]);
+		}
+		
 		return $this->render('front/driver/cars.html.twig', [
 			'cars' => $voitureRepository->findByUser($user->getId()),
+			'form' => $form->createView()
 		]);
 	}
 
