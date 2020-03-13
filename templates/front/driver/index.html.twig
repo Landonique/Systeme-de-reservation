@@ -1,13 +1,37 @@
 {% extends 'front/base.html.twig' %}
 
-{% block title %}{{ parent() }}Mes réservations{% endblock %}
+{% block title %}
+	{{ parent() }}Mes réservations
+{% endblock %}
 
 {% block body %}
-    {% for notification in notifications %}
-    <div>
-      <p>CLient : {{ notification.client.username }}</p>
-      <p>Voiture : {{ notification.voiture.marque }}</p>
-      <p>Date : {{ notification.date ? notification.date|date('Y-m-d H:i:s') : ''}}
-    </div>
-    {% endfor %}
+<div class='container mt-4'>
+  <table class="table table-bordered mt-5" >
+		<thead class="text-center">
+			<tr class="table-active">
+				<th>Client</th>
+				<th>Voiture</th>
+				<th>Date</th>
+        <th>Statut</th>
+			</tr>
+    </thead>
+    <tbody class="text-center">
+      {% for notification in notifications %}
+      <tr>
+        <td>{{ notification.client.username }}</td>
+        <td>{{ notification.voiture.marque}}</td>
+        <td>{{ notification.date | date('d/m/Y h:i') }}</td>
+        <td>
+          {% if notification.status == 'VALIDER' %}
+            <span class="badge badge-success">Validé</span>
+          {% else %}
+            <a href="{{ path('notification_validate', {'id': notification.id}) }}" class="btn btn-sm btn-primary">Accepter la réservation</a>
+          {% endif %}
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+	</table>
+</div>
+
 {% endblock %}

@@ -50,7 +50,7 @@ class NotificationRepository extends ServiceEntityRepository
 
     public function findNotificationChauffeur($user){
         return $this->createQueryBuilder('n')
-            ->join("App\Entity\Voiture", "v")
+            ->innerJoin("n.voiture", "v")
             ->andWhere('v.user = :user')
             ->setParameter('user', $user)
             ->orderBy('n.id', 'ASC')

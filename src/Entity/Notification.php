@@ -31,6 +31,11 @@ class Notification
      */
     private $client;
 
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $status = false;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -68,6 +73,18 @@ class Notification
     public function setClient(?User $client): self
     {
         $this->client = $client;
+
+        return $this;
+    }
+
+    public function getStatus(): ?string
+    {
+        return $this->status;
+    }
+
+    public function setStatus(string $status): self
+    {
+        $this->status = $status;
 
         return $this;
     }

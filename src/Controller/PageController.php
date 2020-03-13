@@ -6,6 +6,7 @@ use App\Entity\User;
 use App\Entity\Voiture;
 use App\Entity\Location;
 use App\Form\VoitureType;
+use App\Entity\Notification;
 use App\Repository\VoitureRepository;
 use App\Repository\NotificationRepository;
 use CrEOF\Spatial\PHP\Types\Geometry\Point;
@@ -15,6 +16,7 @@ use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
+use Doctrine\ORM\EntityManagerInterface;
 
 class PageController extends AbstractController
 {
@@ -31,8 +33,8 @@ class PageController extends AbstractController
 				'voitures' => $voitureRepository->findAll()
 			]);
 		} else if (in_array('ROLE_CHAUFFEUR', $currentRoles)) {
-			/*dump($notificationRepository->findNotificationChauffeur($this->getUser()));
-			die();*/
+			// dump($notificationRepository->findNotificationChauffeur($this->getUser()));
+			// die();
 			return $this->render('front/driver/index.html.twig', [
 				'voitures' => $voitureRepository->findAll() ,
 				'notifications' => $notificationRepository->findNotificationChauffeur($this->getUser())
@@ -94,5 +96,16 @@ class PageController extends AbstractController
 			'success' => true,
 			'data' => array_shift($car)
 		]);
+	}
+
+	/**
+	 * @Route("/notification/validate/{id}", name="notification_validate", methods={"GET"})
+	 */
+	public function validate(Notification $notification, EntityManagerInterface $em)
+	{
+		$notification->setStatus('VALIDER');
+		$em->flush();
+		
+		return $this->redirectToRoute('page');
 	}
 }
